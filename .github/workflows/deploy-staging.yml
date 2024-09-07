@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
+    steps:
+      - uses: actions/checkout@v4
+
